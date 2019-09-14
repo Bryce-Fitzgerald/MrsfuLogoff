@@ -9,6 +9,9 @@
     <include
         layout="@layout/base_title"
         />
+    <include
+        layout="@layout/base_bottom"
+        />
 
    <!-- <TextView
         android:layout_width="wrap_content"

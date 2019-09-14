@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="#6C6C6C"
+    >
+   <Button
+       android:id="@+id/bottom_homepage"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:layout_gravity="center"
+       android:textColor="#fff"
+       android:gravity="center"
+       android:text="首页"
+       />
+   <Button
+        android:id="@+id/bottom_train"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:layout_gravity="center"
+       android:textColor="#fff"
+       android:gravity="center"
+       android:text="训练"
+        />
+   <Button
+       android:id="@+id/bottom_news"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:layout_gravity="center"
+       android:textColor="#fff"
+       android:gravity="center"
+       android:text="资讯"
+       />
+   <Button
+       android:id="@+id/bottom_class"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:layout_gravity="center"
+       android:textColor="#fff"
+       android:gravity="center"
+       android:text="公开课"
+       />
+   <Button
+       android:id="@+id/bottom_user"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:layout_gravity="center"
+       android:textColor="#fff"
+       android:gravity="center"
+       android:text="我"
+       />
+
+
+</LinearLayout>
