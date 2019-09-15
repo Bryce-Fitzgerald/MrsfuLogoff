@@ -4,98 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".UserActivity">
-
+    tools:context=".UserActivity"
+    android:orientation="vertical">
     <include
         layout="@layout/base_title"
         />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_centerInParent="true">
-
-        <android.support.constraint.ConstraintLayout
+        >
+        <Button
+            android:id="@+id/selftest_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="88dp"
-                android:layout_height="44dp"
-
-                android:layout_marginTop="524dp"
-                android:text="退出登录"
-                android:textColor="#EE1000"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/start_selftest_activity"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="196dp"
-                android:text="SNS成瘾情况自测"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="奖励领取"
-                app:layout_constraintStart_toStartOf="@+id/start_selftest_activity"
-                app:layout_constraintTop_toBottomOf="@+id/start_selftest_activity" />
-
+            android:layout_gravity="center"
+            android:text="自测"
+            android:textColor="#fff"
+            android:background="#6c6c6c"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
         <Button
-            android:id="@+id/button6"
-            android:layout_width="200dp"
+            android:id="@+id/award_button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="系统设置"
-            app:layout_constraintStart_toStartOf="@+id/button3"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="联系我们及帮助"
-            app:layout_constraintStart_toStartOf="@+id/button6"
-            app:layout_constraintTop_toBottomOf="@+id/button6" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="97dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="320dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="412dp"
-                android:text="用户名称"
-                app:layout_constraintBottom_toTopOf="@+id/button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.779" />
-        </android.support.constraint.ConstraintLayout>
+            android:layout_gravity="center"
+            android:text="奖励"
+            android:textColor="#fff"
+            android:background="#6c6c6c"
+            />
     </LinearLayout>
     <include
         layout="@layout/base_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         />
+
+
 </LinearLayout>
