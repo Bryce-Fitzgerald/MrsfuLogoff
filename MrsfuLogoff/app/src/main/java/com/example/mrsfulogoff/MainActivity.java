@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void initBottomView(){
         BottomBuilder bottomBuilder=new BottomBuilder();
-        new BottomBuilder(this).setTrButtonClickListener(this).build();
+        new BottomBuilder(this).setTrButtonClickListener(this).setNsButtonClickListener(this).setClButtonClickListener(this).setUrButtonClickListener(this).build();
     }
 }
 

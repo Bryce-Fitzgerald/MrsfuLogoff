@@ -70,18 +70,45 @@ public class BottomBuilder  {
         return  this;
     }
     //third bottom of news
-    public BottomBuilder setNsButtonClickListener(View.OnClickListener listener) {
-        nsBottom.setOnClickListener(listener);
+    public BottomBuilder setNsButtonClickListener(final Context context) {
+        nsBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext=context;
+                //  Toast.makeText(mContext,"test",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(mContext,NewsActivity.class);
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+                mContext.startActivity(intent);
+            }
+        });
         return  this;
     }
     //forth bottom of class
-    public BottomBuilder setClButtonClickListener(View.OnClickListener listener) {
-        clBottom.setOnClickListener(listener);
+    public BottomBuilder setClButtonClickListener(final Context context) {
+        clBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext=context;
+                //  Toast.makeText(mContext,"test",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(mContext,ClassActivity.class);
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+                mContext.startActivity(intent);
+            }
+        });
         return  this;
     }
     //fifth bottom of user
-    public BottomBuilder setUrButtonClickListener(View.OnClickListener listener) {
-        urBottom.setOnClickListener(listener);
+    public BottomBuilder setUrButtonClickListener(final Context context) {
+        urBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext=context;
+                //  Toast.makeText(mContext,"test",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(mContext,UserActivity.class);
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+                mContext.startActivity(intent);
+            }
+        });
         return  this;
     }
 

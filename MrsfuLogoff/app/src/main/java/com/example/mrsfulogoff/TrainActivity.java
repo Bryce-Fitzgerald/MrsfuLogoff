@@ -34,6 +34,7 @@ public class TrainActivity extends AppCompatActivity {
             }
         });
     }
+
     private void initTitleView() {
         new TitleBuilder(this).setTitleText("呼吸训练").setButtonClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,6 @@ public class TrainActivity extends AppCompatActivity {
         }).build();
     }
     private void initBottomView() {
-        new BottomBuilder(this).setHpButtonClickListener(this).build();
+        new BottomBuilder(this).setHpButtonClickListener(this).setNsButtonClickListener(this).setClButtonClickListener(this).setUrButtonClickListener(this).build();
     }
 }
