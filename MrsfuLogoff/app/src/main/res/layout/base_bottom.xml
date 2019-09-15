@@ -4,12 +4,13 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:background="#6C6C6C"
+    android:id="@+id/bottom_bar"
     >
    <Button
        android:id="@+id/bottom_homepage"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
-       android:layout_weight="1"
+      android:layout_weight="1"
        android:layout_gravity="center"
        android:textColor="#fff"
        android:gravity="center"

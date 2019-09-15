@@ -45,6 +45,10 @@ public class TitleBuilder {
         }
         return  this;
     }
+    public TitleBuilder setButtonVisible(int resId) {
+        btTitle.setVisibility(resId>0? View.VISIBLE:View.GONE);
+        return this;
+    }
 
     public View build() {
         return viewTitle;
