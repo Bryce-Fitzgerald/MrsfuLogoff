@@ -26,7 +26,7 @@ public class CountTime_Body implements CountTime_BaseMethod {
     public CountTime_Body() {
         this.mHandler = new Handler();
     }
-
+    //构造方法设定倒计时及其间隔时间
     public CountTime_Body(long countDownTime, long countDownInterval) {
         this.setCountDownTime(countDownTime);
         this.setCountDownInterval(countDownInterval);
@@ -97,11 +97,15 @@ public class CountTime_Body implements CountTime_BaseMethod {
     }
 
     @Override
+    //重置计时
     public void reset() {
+        //如果有计时任务则直接取消
         if (mTimer != null) {
             cancelTimer();
         }
+        //将倒计时剩余时间设定等于用户设定的倒计时时间
         mCountDownRemain = mCountDownTime;
+        //将计时状态设为完成
         mCountTime_BaseStatement = CountTime_BaseStatement.FINISH;
     }
 
@@ -115,80 +119,73 @@ public class CountTime_Body implements CountTime_BaseMethod {
         mTimer = null;
     }
 
+    //确认计时是否开始
     public boolean isStart() {
         return mCountTime_BaseStatement == CountTime_BaseStatement.START;
     }
 
+    //确认计时是否完成
     public boolean isFinish() {
         return mCountTime_BaseStatement == CountTime_BaseStatement.FINISH;
     }
 
-    /**
-     * @deprecated 使用构造方法
-     * @param millisInFuture
-     */
-    @Deprecated
-    public void setCountDownTime(long millisInFuture) {
-        this.mCountDownTime = millisInFuture;
+    //用户设定倒计时时间
+    public void setCountDownTime(long countDownTime) {
+        this.mCountDownTime = countDownTime;
         this.mCountDownRemain = mCountDownTime;
     }
 
-    /**
-     * @deprecated 使用构造方法
-     * @param mCountDownInterval
-     */
-    @Deprecated
+    //用户设定计时事件间隔时间
     public void setCountDownInterval(long mCountDownInterval) {
         this.mCountDownInterval = mCountDownInterval;
     }
 
+    //放置倒计时监听器
     public void setCountTime_Listener(CountTime_Listener listener) {
         this.mCountTime_Listener = listener;
     }
 
-    public long getMillisUntilFinished() {
+    //求倒计时剩余时间
+    public long getCountDownRemain() {
         return mCountDownRemain;
     }
 
+    //求计时状态
     public CountTime_BaseStatement getCountTime_BaseStatement() {
         return mCountTime_BaseStatement;
     }
 
-    /**
-     * @param millisInFuture
-     * @param mCountDownInterval
-     * @return
-     * @deprecated 已更换Timer
-     */
-    @Deprecated
-    protected mCountDownTimer createmCountDownTimer(long millisInFuture, long mCountDownInterval) {
+    //创建计时器
+    protected CountDownTimer createmCountDownTimer(long countDownTime, long countDownInterval) {
         return null;
     }
 
+    //创建计时事务
     protected TimerTask createTimerTask() {
-        //抽象类TimerTask()以创建新任务
+        //抽象类TimerTask()以创建事务
         return new TimerTask() {
             private long startTime = -1;
 
             @Override
             public void run() {
+                //若startTime小于0……
                 if (startTime < 0) {
-                    //第一次回调 记录开始时间
-
+                    //……为第一次回调 记录开始时间，即开始时间=执行至现在时间-（用户设定倒计时-剩余时间）
                     startTime = scheduledExecutionTime() - (mCountDownTime - mCountDownRemain);
-
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
+                            //若监听器工作……
                             if (mCountTime_Listener != null) {
+                                //……向监听器传入剩余时间
                                 mCountTime_Listener.onTick(mCountDownRemain);
                             }
                         }
                     });
+                    //若startTime不小于0……
                 } else {
-                    //剩余时间
+                    //……则记录剩余时间，即用户剩余时间=用户设定的倒计时时长-（执行至现在时间-开始计时时间）
                     mCountDownRemain = mCountDownTime - (scheduledExecutionTime() - startTime);
-
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -197,8 +194,8 @@ public class CountTime_Body implements CountTime_BaseMethod {
                             }
                         }
                     });
+                    //如果没有剩余时间就停止
                     if (mCountDownRemain <= 0) {
-                        //如果没有剩余时间 就停止
                         stop();
                     }
                 }
