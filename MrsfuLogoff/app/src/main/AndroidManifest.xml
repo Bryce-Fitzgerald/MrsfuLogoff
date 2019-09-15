@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".UserActivity"></activity>
+        <activity android:name=".ConsultActivity" />
         <activity android:name=".ClassActivity" />
         <activity android:name=".NewsActivity" />
         <activity android:name=".TimerActivity" />
